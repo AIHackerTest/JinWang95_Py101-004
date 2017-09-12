@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>天气查询程序</title>
+</head>
+
+<body>
+<h1 style="text-align:center">天气查询程序</h1>
+<hr/><!--This is a line -->
+
+<form style="text-align:center" action="" method="POST" accept-charset="utf-8">
+  城市：
+  <input type="text" name="city"></input>
+  <input type="submit" name = "action" value="查询"></input>
+  <input type="submit" name = "action" value="历史记录"></input>
+  <input type="submit" name = "action" value="帮助"></input>
+</form>
+</br>
+
+{% if output %}
+<p style="text-align:center">{{ output }}</p>
+{% endif %}
+
+{% if help %}
+<p style="text-align:center">
+- 点击【查询】按钮，查询城市天气</br>
+- 点击【历史记录】按钮，获得查询记录</br>
+- 点击【帮助】按钮，获得帮助信息</br>
+</p>
+{% endif %}
+
+{% if history %}
+<div style="text-align:center">
+<p style="font-weight:bold">历史记录</p>
+{% for i in history %}
+  <p>{{ i }}</p>
+{% endfor %}
+</div>
+{% endif %}
+
+</body>
+
+</html>
